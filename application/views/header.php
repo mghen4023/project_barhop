@@ -26,17 +26,17 @@
                 <div data-role="navbar" data-iconpos="top">
                     <ul>
                         <li>
-                            <a href="drinks" data-theme="b" data-icon="">
+                            <a href="/index.php/drinks/" data-theme="b" data-icon="">
                                 Drinks
                             </a>
                         </li>
                         <li>
-                            <a href="foods" data-theme="b" data-icon="">
+                            <a href="/index.php/foods/" data-theme="b" data-icon="">
                                 Food
                             </a>
                         </li>
                         <li>
-                            <a href="friends" data-theme="b" data-icon="">
+                            <a href="/index.php/friends/" data-theme="b" data-icon="">
                                 Friends
                             </a>
                         </li>
