@@ -7,7 +7,16 @@ class Foods extends CI_Controller {
 	//POST: A listing of all foods
 	{
 		$this->load->view('header');															// load the header file
-		$this->create();																		// call the create function to display a form
+		$this->loadFoods();
+		//$this->create();																		// call the create function to display a form
+	}
+	
+	function loadFoods()
+	//POST: Rendered output displaying items
+	{
+		$this->load->model('bh_list');															// load the list model
+		$data['items'] = $this->bh_list->getItems('food', 4, 'ORDER BY price ASC');				// query for some data
+		$this->load->view('item_view', $data);													// pass the query results to the view
 	}
 	
 	function create()

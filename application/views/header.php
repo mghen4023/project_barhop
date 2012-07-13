@@ -6,7 +6,7 @@
 <!DOCTYPE html> 
 <html> 
 	<head> 
-	<title>Page Title</title> 
+	<title>Project Barhop</title> 
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1"> 
 
@@ -19,24 +19,24 @@
 
         <!-- Home -->
         <div data-role="page" id="page1">
-            <div data-theme="a" data-role="header">
-                <h3>
+            <div data-theme="a" data-role="header" data-position="inline">
+                <h1>
                     Project Barhop
-                </h3>
-                <div data-role="navbar" data-iconpos="top">
+                </h1>
+                <div data-role="navbar" data-iconpos="bottom">
                     <ul>
                         <li>
-                            <a href="/index.php/drinks/" data-theme="b" data-icon="">
+                            <a href="/index.php/drinks/" data-theme="b" data-icon="check">
                                 Drinks
                             </a>
                         </li>
                         <li>
-                            <a href="/index.php/foods/" data-theme="b" data-icon="">
+                            <a href="/index.php/foods/" data-theme="b" data-icon="check">
                                 Food
                             </a>
                         </li>
                         <li>
-                            <a href="/index.php/friends/" data-theme="b" data-icon="">
+                            <a href="/index.php/friends/" data-theme="b" data-icon="check">
                                 Friends
                             </a>
                         </li>

@@ -5,9 +5,7 @@
 // 7/5/12
 // This is the BH_List model which models a Listing of data
 
-class BH_List extends CI_Model {
-
-	var $list_items;            //An array of all items in this BH_List
+class BH_list extends CI_Model {
 	
 	function __construct() 
 	//POST: A new BH_List is created with no data
@@ -29,32 +27,26 @@ class BH_List extends CI_Model {
 		switch( $type )
 		{
 			case 'food':										// pull from the food table
-				$sql = 'SELECT * FROM food' . $sql;
+				$sql = 'SELECT * FROM food ' . $sql;
 				break;
 			case 'drink':										// pull from the drink table
-				$sql = 'SELECT * FROM drink' . $sql;
+				$sql = 'SELECT * FROM drink ' . $sql;
 				break;
 			case 'food_special':								// pull from the food_special table
-				$sql = 'SELECT * FROM food_special' . $sql
+				$sql = 'SELECT * FROM food_special ' . $sql;
 				break;
 			case 'drink_special':								// pull from the drink_special table
-				$sql = 'SELECT * FROM drink_special' . $sql
+				$sql = 'SELECT * FROM drink_special ' . $sql;
 				break;
 		}
 		
-		$sql .= "LIMIT {$num}";									// limit the number of results
-		
+		$sql .= " LIMIT {$num}";								// limit the number of results
+
 		$query = $this->db->query($sql);						// query the database
 		
-		$result = $query->row_array();
+		$result = $query->result_array();
 		
-		foreach( $result as $row )
-		{
-			$item_id = $row->$id;
-			$this->$list_items[$item_id] = $row;				// add the item to the list, using id as index
-		}
-		
-		return $this->$list_items;
+		return $result;
 	}
 
 }
