@@ -19,27 +19,3 @@
 	<?php }
 	
 ?>
-
-<center>
-	<a id="hide" href="">Hide Results</a>
-	<a id="show" href="">Show Results</a>
-</center>
-                                                               
-<script type="text/javascript" src="jquery-1.7.2.js"></script>          
-<script type="text/javascript">                                         
-
-	$(document).ready(function() {
- 
-		$("#hide").click(function() {
-			$(".item-display").fadeOut(200, function() {
-			});
-		});
-		
-		$("#show").click(function() {
-			$(".item-display").fadeIn(200, function() {
-			});
-		});
- 
-	});
-
-</script>  

@@ -20,6 +20,13 @@ class Welcome extends CI_Controller {
 	public function index()
 	{
 		$this->load->view('header');
+		
+		$this->load->model('bh_list');
+		$data['details'] = $this->bh_list->getPlaceInfo(2);
+		$data['drink'] = $this->bh_list->getItems('drink', 3, 'WHERE location_id = 0 ORDER BY price ASC');
+		$data['food'] = $this->bh_list->getItems('food', 3, 'WHERE location_id = 0 ORDER BY price ASC');
+		$this->load->view('location_view', $data);
+		$this->load->view('footer');
 	}
 }
 

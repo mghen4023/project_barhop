@@ -8,7 +8,8 @@ class Foods extends CI_Controller {
 	{
 		$this->load->view('header');															// load the header file
 		$this->loadFoods();
-		//$this->create();																		// call the create function to display a form
+		//$this->create();																		// call the create function to display a 
+		$this->load->view('footer');															// load the footer file
 	}
 	
 	function loadFoods()

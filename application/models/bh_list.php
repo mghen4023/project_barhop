@@ -44,9 +44,21 @@ class BH_list extends CI_Model {
 
 		$query = $this->db->query($sql);						// query the database
 		
-		$result = $query->result_array();
+		$result = $query->result_array();						// get the results in array format
+		return $result;
+	}
+	
+	function getPlaceInfo($id)
+	// PRE:  $id is the location id we are pulling information about
+	// POST: all data in the database for this location to be used on the templated view
+	{
+		$sql = "SELECT * FROM location WHERE location_id = $id";	// build the SQL 
+		$query = $this->db->query($sql);							// query the database
+		
+		$result = $query->row();									// get the results in row format
 		
 		return $result;
+		
 	}
 
 }

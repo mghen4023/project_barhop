@@ -9,6 +9,7 @@ class Drinks extends CI_Controller {
 		$this->load->view('header');															// load the header file
 		$this->loadDrinks();
 		//$this->create();																		// call the create function to display a form
+		$this->load->view('footer');															// load the footer file
 	}
 	
 	function loadDrinks()
