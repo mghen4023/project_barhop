@@ -50,9 +50,10 @@ class Foods extends CI_Controller {
 	
 	}
 	
-	function delete()
+	function delete($id)
 	//POST: A Food is deleted from the database
 	{
-	
+		$this->load->model('food');		// pass off to the model
+		$this->food->delete($id);
 	}
 }

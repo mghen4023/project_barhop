@@ -43,6 +43,10 @@
                     </ul>
                 </div>
             </div>
+			
+		<br />	
+		<input type="search" name="search-mini" id="search-mini" value="" data-mini="true" />
+		<br />
            
         
         

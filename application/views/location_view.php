@@ -16,7 +16,7 @@
 			<?php echo $details->rating; ?>
 		</h2>
 				
-        <img src="https://maps.googleapis.com/maps/api/staticmap?center=Doylestown,%20PA&amp;zoom=14&amp;size=288x200&amp;markers=Doylestown,%20PA&amp;sensor=false" 
+        <img src="https://maps.googleapis.com/maps/api/staticmap?center=<?php echo $details->address; ?>&amp;zoom=14&amp;size=288x200&amp;markers=<?php echo $details->address; ?>&amp;sensor=false" 
 		height="200" width="288">
 		
 	</center>	

@@ -25,6 +25,28 @@ class Drink extends CI_Model
 		
 		return $this->db->insert('drink', $data);						// perform the database insert
 	}
+	
+	function delete($id)
+	// PRE:  $id is the drink_id to be removed
+	// POST: a successful or failed deletion from the drinks database
+	{
+		$sql = 'DELETE FROM drink WHERE drink_id = $id';
+		
+		$query = $this->db->query($sql);
+		
+		return ($this->db->affected_rows() > 0) ? TRUE : FALSE;			// CI Hack
+	}
+	
+	function get($id)
+	// PRE:  $id is the drink_id to be retrieved
+	// POST: if found, a database row is returned
+	{
+		$sql = 'SELECT * FROM drink WHERE drink_id = $id';
+		
+		$query = $this->db->query($sql);
+		
+		return $query->row();									// assuming id is unique
+	}
 }
 
 ?>	

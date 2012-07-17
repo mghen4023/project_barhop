@@ -15,7 +15,7 @@ class Food extends CI_Model
 	}
 	
 	function insert()
-	// POST: a successful or failed insert into the drinks database
+	// POST: a successful or failed insert into the foods database
 	{
 		$data = array(													// pull information from the form POST
 			'name' 			=> $this->input->post('name'),
@@ -24,6 +24,28 @@ class Food extends CI_Model
 		);
 		
 		return $this->db->insert('food', $data);						// perform the database insert
+	}
+	
+	function delete($id)
+	// PRE:  $id is the food_id to be removed
+	// POST: a successful or failed deletion from the foods database
+	{
+		$sql = 'DELETE FROM food WHERE food_id = $id';
+		
+		$query = $this->db->query($sql);
+		
+		return ($this->db->affected_rows() > 0) ? TRUE : FALSE;			// CI Hack
+	}
+	
+	function get($id)
+	// PRE:  $id is the food_id to be retrieved
+	// POST: if found, a database row is returned
+	{
+		$sql = 'SELECT * FROM food WHERE food_id = $id';
+		
+		$query = $this->db->query($sql);
+		
+		return $query->row();									// assuming id is unique
 	}
 }
 
