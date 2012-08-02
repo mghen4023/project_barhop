@@ -17,28 +17,15 @@ class BH_list extends CI_Model {
 		$this->load->database();
 	}
 	
-	function getItems($type, $num=1, $sql)
-	//PRE:  $type is either: food, drink, food_special or drink_special
+	//TODO: Add the ability to select only certain fields
+	function getItems($type, $num=1, $sql) 
+	//PRE:  $type is either: food, drink, food_special, drink_special, or location (the name of a table)
 	//		$num is the number of items to get of $type
 	//      $sql is SQL starting with 'WHERE ' and is a valid SQL statment
 	//POST: $num  items fetched using a simple select from table $type with $sql added 
 	//		are returned as row results        
-	{
-		switch( $type )
-		{
-			case 'food':										// pull from the food table
-				$sql = 'SELECT * FROM food ' . $sql;
-				break;
-			case 'drink':										// pull from the drink table
-				$sql = 'SELECT * FROM drink ' . $sql;
-				break;
-			case 'food_special':								// pull from the food_special table
-				$sql = 'SELECT * FROM food_special ' . $sql;
-				break;
-			case 'drink_special':								// pull from the drink_special table
-				$sql = 'SELECT * FROM drink_special ' . $sql;
-				break;
-		}
+	{	
+		$sql = 'SELECT * FROM '.$type.' ' . $sql;
 		
 		$sql .= " LIMIT {$num}";								// limit the number of results
 
