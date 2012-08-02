@@ -2,6 +2,7 @@
 // Mike Ghen
 // 7/3/2012
 // This is a header for Project Barhop
+$this->load->helper('url');
 ?>
 <!DOCTYPE html> 
 <html> 
@@ -26,17 +27,17 @@
                 <div data-role="navbar" data-iconpos="bottom">
                     <ul>
                         <li>
-                            <a href="/index.php/drinks/" data-theme="b" data-icon="check">
+                            <a href="<?php echo site_url("drinks"); ?>" data-theme="b" data-icon="check">
                                 Drinks
                             </a>
                         </li>
                         <li>
-                            <a href="/index.php/foods/" data-theme="b" data-icon="check">
+                            <a href="<?php echo site_url("foods"); ?>" data-theme="b" data-icon="check">
                                 Food
                             </a>
                         </li>
                         <li>
-                            <a href="/index.php/friends/" data-theme="b" data-icon="check">
+                            <a href="<?php echo site_url("friends"); ?>" data-theme="b" data-icon="check">
                                 Friends
                             </a>
                         </li>
