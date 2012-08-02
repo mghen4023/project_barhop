@@ -33,12 +33,14 @@ class Foods extends CI_Controller {
 		
 		if ($this->form_validation->run() === FALSE)											// if validation fails, display the form	
 		{
+			//TODO: Add an error message
 			$data['title'] = 'Food';
 			$data['controller'] = 'foods';
 			$this->load->view('create_form', $data);			
 		}
 		else																					// otherwise, pass off form data to the model
 		{
+			//TODO: Add a confirmation message
 			$this->load->model('food');
 			$this->food->insert();
 		}
