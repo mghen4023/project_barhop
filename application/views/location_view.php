@@ -1,25 +1,22 @@
-    <div data-role="content" style="padding: 10px">
-		
-	<center>
-		<h2>
-            <?php echo $details->name; ?>
+    <div id="location-view" data-role="content" style="padding: 10px">
+		<h2 class="location-name">
+			<?php echo $details->name; ?>
         </h2>
 			
 		
-		<p>
+		<p class="location-address">
 			<?php echo $details->address; ?>
 		</p>
 				
 		<div class="clear" style="clear: both; display: none;">&nbsp;</div>
 		<!-- jquery rating plugin here http://www.wbotelhos.com/raty/ -->
-		<h2>
+		<p class="locaiton-rating">
 			<?php echo $details->rating; ?>
-		</h2>
+		</p>
 				
-        <img src="https://maps.googleapis.com/maps/api/staticmap?center=<?php echo $details->address; ?>&amp;zoom=14&amp;size=288x200&amp;markers=<?php echo $details->address; ?>&amp;sensor=false" 
+        <img class="location-map" src="https://maps.googleapis.com/maps/api/staticmap?center=<?php echo $details->address; ?>&amp;zoom=14&amp;size=288x200&amp;markers=<?php echo $details->address; ?>&amp;sensor=false" 
 		height="200" width="288">
-		
-	</center>	
+
 
         <div data-role="collapsible-set" data-theme="" data-content-theme="">
             <div data-role="collapsible" data-collapsed="true">
