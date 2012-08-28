@@ -2,44 +2,59 @@
 
 class Drinks extends CI_Controller {
 	
+	function __construct()
+	{
+		// call the parent constructor
+		parent::__construct();
+
+		// load the header on every page
+		$this->load->view('header');
+
+		// load the bh_list and drink models
+		$this->load->model('bh_list');
+		$this->load->model('drink');
+	}
+
 	function index()
 	//PRE: The default view for drinks
 	//POST: A listing of all drinks
 	{
-		$this->load->view('header');															// load the header file
-		$this->loadDrinks();
-		//$this->create();																		// call the create function to display a form
-		$this->load->view('footer');															// load the footer file
+
 	}
 	
 	function loadDrinks()
 	//POST: Rendered output displaying items
 	{
-		$this->load->model('bh_list');															// load the list model
-		$data['items'] = $this->bh_list->getItems('drink', 4, 'ORDER BY price ASC');			// query for some data
-		$this->load->view('item_view', $data);													// pass the query results to the view
+		// pass off to the bh_list model
+		$data['items'] = $this->bh_list->getItems('drink', 4, 'ORDER BY price ASC');
+
+		// load the data into the item_view
+		$this->load->view('item_view', $data);
 	}
 	
 	function create()
 	//PRE: $_POST must have name, description, and price
 	//POST: A new drink is added to the database and a success message is displayed
 	{	
-		$this->load->helper('form');															// load the form helper
-		$this->load->library('form_validation');												// load form validation library	and set rules below
+		// load form and form_validation libraries
+		$this->load->helper('form');
+		$this->load->library('form_validation');
 		
+		// set some validation rules
 		$this->form_validation->set_rules('name', 'Name', 'required');
 		$this->form_validation->set_rules('description', 'Description', 'required');
 		$this->form_validation->set_rules('price', 'Price', 'required');
 		
-		if ($this->form_validation->run() === FALSE)											// if validation fails, display the form	
+		// if the form has not been submitted successfully, show the create_form view
+		if ($this->form_validation->run() === FALSE)
 		{
 			$data['title'] = 'Drink';
 			$data['controller'] = 'drinks';
 			$this->load->view('create_form', $data);			
 		}
-		else																					// otherwise, pass off form data to the model
+		// otherwise pass off to the model and perform the database insert
+		else
 		{
-			$this->load->model('drink');
 			$this->drink->insert();
 		}
 	}
@@ -51,9 +66,9 @@ class Drinks extends CI_Controller {
 	}
 	
 	function delete($id)
-	//POST: A Food is deleted from the database
+	//POST: A Drink is deleted from the database
 	{
-		$this->load->model('drink');	// pass off to the model
+		// pass off to the model to delete
 		$this->drink->delete($id);
 	}
 }

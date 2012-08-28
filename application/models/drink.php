@@ -10,20 +10,25 @@ class Drink extends CI_Model
 {
 	function __construct()
 	{
-		parent::__construct();											// load the parent constructor
-		$this->load->database();										// initialize database
+		// load the parent constructor
+		parent::__construct();
+
+		// initialize database
+		$this->load->database();
 	}
 	
 	function insert()
 	// POST: a successful or failed insert into the drinks database
 	{
-		$data = array(													// pull information from the form POST
+		// pull information from the form POST
+		$data = array(
 			'name' 			=> $this->input->post('name'),
 			'description' 	=> $this->input->post('description'),
 			'price'			=> $this->input->post('price')
 		);
 		
-		return $this->db->insert('drink', $data);						// perform the database insert
+		// perform the database insert
+		return $this->db->insert('drink', $data);
 	}
 	
 	function delete($id)
@@ -45,7 +50,7 @@ class Drink extends CI_Model
 		
 		$query = $this->db->query($sql);
 		
-		return $query->row();									// assuming id is unique
+		return $query->row();
 	}
 }
 

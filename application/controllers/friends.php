@@ -2,11 +2,22 @@
 
 class Friends extends CI_Controller {
 
-	function index()
-	//POST: A listing of all food
+	function __construct()
 	{
-		$this->load->view("header");
-		
+		// call the parent constructor
+		parent::__construct();
+
+		// load the header on every page
+		$this->load->view('header');
+
+		// load the bh_list and friends models
+		$this->load->model('bh_list');
+		$this->load->model('friends');
+	}
+
+	function index()
+	{
+
 	}
 
 }

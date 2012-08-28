@@ -5,7 +5,7 @@
 // 7/5/12
 // This is the BH_List model which models a Listing of data
 
-class BH_list extends CI_Model {
+class Bh_list extends CI_Model {
 	
 	function __construct() 
 	//POST: A new BH_List is created with no data
@@ -53,15 +53,20 @@ class BH_list extends CI_Model {
 	//		 $filter is the raw text input in the search field that needs to be converted to SQL
 	// POST: a listing of matching results from the database as row results
 	{
-		$filter = strtoupper($filter);						// remove case sensitivities and build the query below
+		// remove case sensitivities and build the query below
+		$filter = strtoupper($filter);
 		
 		$filter = "upper(name) LIKE '%". $filter ."%' OR upper(description) LIKE '%". $filter ."%'";
 		
-		$sql = "SELECT * FROM $type WHERE $filter";			// build the SQL
-		$query = $this->db->query($sql);					// query the databse
-		
-		$result = $query->result_array();					// get the results in array format
-		return result;
+		// build the SQL
+		$sql = "SELECT * FROM $type WHERE $filter";
+
+		// query the databse
+		$query = $this->db->query($sql);
+
+		// get the results in array format
+		$result = $query->result_array();
+		return $result;
 	}
 	
 	function deleteItem($id, $type)
